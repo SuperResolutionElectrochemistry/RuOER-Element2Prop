@@ -3,20 +3,16 @@ import pandas as pd
 import os
 import time
 
-# =========================
-# 1. OpenAI Client
-# =========================
+
 client = OpenAI(
-    api_key="sk-wAkFsFcVzWr7GY76EeBd2a09A87e448aAe4dE1B59b070c94",
-    base_url="https://api.pumpkinaigc.online/v1"  # 如果是官方 API，可删除这一行
+    api_key="",
+    base_url=""
 )
 
 MODEL_NAME = "gpt-4o"
-REQUEST_INTERVAL = 1.2  # 秒，防止限流
+REQUEST_INTERVAL = 1.2  
 
-# =========================
-# 2. Final Stable Prompt
-# =========================
+
 FINAL_PROMPT = """
 You are a scientific information extraction assistant specializing in Ru-based electrocatalysts for the oxygen evolution reaction (OER).
 
@@ -115,9 +111,6 @@ Overpotential: [Extracted content or NULL]
 Work function: [Extracted content or NULL]
 """
 
-# =========================
-# 3. Fields Definition
-# =========================
 FIELDS = [
     "Detailed Research Field",
     "Specified Research Field",
@@ -139,9 +132,7 @@ FIELDS = [
     "Work function"
 ]
 FINAL_COLUMNS = ["Title", "Abstract"] + FIELDS
-# =========================
-# 4. GPT Call
-# =========================
+
 def call_gpt(title, abstract):
     prompt = FINAL_PROMPT.format(title=title, abstract=abstract)
     try:
@@ -158,9 +149,7 @@ def call_gpt(title, abstract):
         print("API Error:", e)
         return None
 
-# =========================
-# 5. Output Parser
-# =========================
+
 def parse_output(text):
     parsed = {k: "NULL" for k in FIELDS}
     if text is None:
@@ -175,13 +164,9 @@ def parse_output(text):
                 parsed[key] = value
     return parsed
 
-# =========================
-# 6. Main Pipeline
-# =========================
-# input_dir = r"E:\AMsystem\Project\TYH-subject1\data"
-input_dir = r"E:\AMsystem\Project\TYH-subject1\data2"
-output_dir = r"E:\AMsystem\Project\TYH-subject1\result"
-os.makedirs(output_dir, exist_ok=True)
+
+input_dir = ""
+output_dir = ""
 
 for file in os.listdir(input_dir):
     if not file.lower().endswith((".xls", ".xlsx")):
@@ -205,15 +190,12 @@ for file in os.listdir(input_dir):
         parsed["Abstract"] = abstract
 
         results.append(parsed)
-        print(f"  ✓ Processed {idx + 1}")
 
-    # df_out = pd.DataFrame(results)
     df_out = pd.DataFrame(results, columns=FINAL_COLUMNS)
     out_name = os.path.splitext(file)[0] + f"-{MODEL_NAME}.csv"
     out_path = os.path.join(output_dir, out_name)
 
     df_out.to_csv(out_path, index=False, encoding="utf-8-sig")
     print(f"Saved: {out_path}")
-    print("=" * 60)
 
 print("All files processed.")
