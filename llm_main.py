@@ -59,9 +59,9 @@ defect formation energy; oxygen vacancy formation enthalpy; E_vac
 metal–oxygen bond strength; M–O bond strength;
 metal–oxygen bond energy; bond dissociation energy; BDE
 
-6) Lattice oxygen participation tendency:
-lattice oxygen mechanism; LOM; lattice oxygen redox;
-oxygen anion redox; lattice oxygen participation
+6) Non-lattice oxygen participation tendency: 
+non-lattice oxygen participation; non-LOM; negligible lattice oxygen involvement; 
+suppressed lattice oxygen participation; AEM-dominated
 
 7) Pourbaix stability window:
 Pourbaix diagram stability; Pourbaix stability window;
@@ -101,7 +101,7 @@ Metal dissolution free energy: [Extracted content or NULL]
 High-valence accessibility: [Extracted content or NULL]
 Oxygen vacancy formation energy: [Extracted content or NULL]
 Metal–oxygen bond strength: [Extracted content or NULL]
-Lattice oxygen participation tendency: [Extracted content or NULL]
+Non-lattice oxygen participation tendency: [Extracted content or NULL]
 Pourbaix stability window: [Extracted content or NULL]
 Configurational entropy: [Extracted content or NULL]
 e_g orbital occupancy: [Extracted content or NULL]
@@ -122,7 +122,7 @@ FIELDS = [
     "High-valence accessibility",
     "Oxygen vacancy formation energy",
     "Metal–oxygen bond strength",
-    "Lattice oxygen participation tendency",
+    "Non-lattice oxygen participation tendency",
     "Pourbaix stability window",
     "Configurational entropy",
     "e_g orbital occupancy",
@@ -199,3 +199,4 @@ for file in os.listdir(input_dir):
     print(f"Saved: {out_path}")
 
 print("All files processed.")
+
