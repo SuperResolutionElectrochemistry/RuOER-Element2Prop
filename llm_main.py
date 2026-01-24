@@ -59,33 +59,36 @@ defect formation energy; oxygen vacancy formation enthalpy; E_vac
 metal–oxygen bond strength; M–O bond strength;
 metal–oxygen bond energy; bond dissociation energy; BDE
 
-6) Non-lattice oxygen participation tendency: 
+6) Adsorbate Evolution Mechanism:
+adsorbat evolution mechanism; AEM; AEM-dominated.
+
+7) Non-lattice oxygen participation tendency: 
 non-lattice oxygen participation; non-LOM; negligible lattice oxygen involvement; 
 suppressed lattice oxygen participation; AEM-dominated
 
-7) Pourbaix stability window:
+8) Pourbaix stability window:
 Pourbaix diagram stability; Pourbaix stability window;
 electrochemical stability window; E–pH stability
 
-8) Configurational entropy:
+9) Configurational entropy:
 configurational entropy; mixing entropy; entropy stabilization;
 high-entropy effect; S_config
 
-9) e_g orbital occupancy:
+10) e_g orbital occupancy:
 e_g orbital occupancy; e_g filling; e_g electron count; e_g descriptor
 
-10) Overpotential:
+11) Overpotential:
 overpotential; η; η10; η100; onset overpotential
 
-11) ΔG*O:
+12) ΔG*O:
 ΔG*O; ΔG(O); oxygen adsorption free energy;
 *O adsorption energy; O* binding energy
 
-12) ΔG*OH:
+13) ΔG*OH:
 ΔG*OH; ΔG(OH); hydroxyl adsorption free energy;
 *OH adsorption energy; OH* binding energy
 
-13) Work function:
+14) Work function:
 work function; surface work function; electronic work function;
 Φ; vacuum level alignment
 
@@ -102,6 +105,7 @@ High-valence accessibility: [Extracted content or NULL]
 Oxygen vacancy formation energy: [Extracted content or NULL]
 Metal–oxygen bond strength: [Extracted content or NULL]
 Non-lattice oxygen participation tendency: [Extracted content or NULL]
+Adsorbate Evolution Mechanism: [Extracted content or NULL]
 Pourbaix stability window: [Extracted content or NULL]
 Configurational entropy: [Extracted content or NULL]
 e_g orbital occupancy: [Extracted content or NULL]
@@ -199,4 +203,5 @@ for file in os.listdir(input_dir):
     print(f"Saved: {out_path}")
 
 print("All files processed.")
+
 
